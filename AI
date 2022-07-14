@@ -1,3 +1,4 @@
+local pathfindingService = game:GetService("PathfindingService")
 local humanoid = game.Players.LocalPlayer.Character.Humanoid
 local body = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or game.Players.LocalPlayer.Character:FindFirstChild("Torso")
 local destination = game.Players.LocalPlayer.Character.DestinationsFolder:WaitForChild("Part")
