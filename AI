@@ -1,0 +1,13 @@
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+local body = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") or game.Players.LocalPlayer.Character:FindFirstChild("Torso")
+local destination = game.Players.LocalPlayer.Character.DestinationsFolder:WaitForChild("Part")
+local path = pathfindingService:CreatePath()
+path:ComputeAsync(body.Position, destination)
+local waypoints = path:GetWaypoints()
+for k, waypoint in pairs(waypoints) do
+humanoid:MoveTo(waypoint.Position)
+if waypoint.Action == Enum.PathWaypointAction.Jump then
+humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end
+humanoid.MoveToFinished:Wait()
+end
